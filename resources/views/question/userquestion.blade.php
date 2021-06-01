@@ -4,16 +4,25 @@
 
 <div class="container">
 
+
+        @if(session('mssg'))
+            <div class="alert alert-success" role="alert">
+                <strong>Dear User </strong> {{ session('mssg') }}
+                <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+            </div>
+        @endif
+
             
         
-    
         <div class="jumbotron">
-            <h4 class="display-4">All Questions</h4>
-            <p class="lead">{{$totalquestions }} questions </p>
+            <h4 class="display-4">Your Questions</h4>
+            
             
             <hr class="my-4">
             @auth
             <a class="btn btn-primary btn-lg" href="{{ url('questions/create') }}" role="button">Ask Question</a>
+            <a class="btn btn-primary btn-lg" href="{{ url('questions/userquestions') }}" role="button">View My Question</a>
+            
             @endauth
 
             @guest
@@ -37,6 +46,7 @@
                 <p class="card-text">Date : {{$question->date}}</p>
                 
                 <a href="{{ url('questions',[$question->id]) }}" class="btn btn-link">View Question</a>
+                <a href="{{ url('questions/deletequestion',[$question->id]) }}" class="btn btn-link">Delete Question</a>
             </div>  
             </div>
             <br>

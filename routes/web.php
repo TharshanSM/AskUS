@@ -32,4 +32,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/questions', 'questionsController@index');
 Route::get('/questions/create', 'questionsController@create');
+Route::get('/questions/userquestions', 'questionsController@userquestions');
+Route::post('/questions','questionsController@store');
+Route::get('/questions/deletequestion/{id}', 'questionsController@delete');
 Route::get('/questions/{id}', 'questionsController@redirect');
+
