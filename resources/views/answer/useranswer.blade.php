@@ -15,7 +15,8 @@
             
         
         <div class="jumbotron">
-            <h4 class="display-4">Your Questions</h4>
+            <h4 class="display-4">Your Answers</h4>
+            
             
             
             <hr class="my-4">
@@ -27,27 +28,31 @@
             @endauth
 
             @guest
-            <h3><a href="{{ route('login') }}">{{ __('Login') }}</a> to ask question</h3>
-
+            <h3><a href="{{ route('login') }}">{{ __('Login') }}</a> to View Your Questions</h3>
             @endguest
 
 
-        
+            
+       
 
 
-        </div>
+            </div>
             <div class="col-md-8">
-            @foreach($questions as $question)
+            <hr>
+            <h3>Total Answers : {{count($answers)}}</h3><hr>
+            <!-- <div class="py-2 "> -->
+
+            @foreach($answers as $answer)
             <div class="card">
             <div class="card-header">
-                Question Subject : <span class="badge badge-pill badge-warning">  {{$question->subject}}</span>
+                Question : {{$answer->body}}
             </div>
             <div class="card-body">
-                <h5 class="card-title">Question: {{$question->body}}</h5>
-                <p class="card-text">Date : {{$question->date}}</p>
+                <p class="card-title">Your Answer: {{$answer->answer}}</p>
+                <p class="card-text">Answered Date : {{$answer->created_at}}</p>
                 
-                <a href="{{ url('questions',[$question->id]) }}" class="btn btn-link">View Question</a>
-                <a href="{{ url('questions/deletequestion',[$question->id]) }}" class="btn btn-link">Delete Question</a>
+                <a href="" class="btn btn-link">Edit Answer</a>
+                <a href="" class="btn btn-link">Delete Answer</a>
             </div>  
             </div>
             <br>
@@ -56,5 +61,6 @@
         </div> 
 
 
-
+        </div>
+       
 @endsection

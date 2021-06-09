@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\question;
+use App\Models\answer;
 use Illuminate\Support\Facades\DB;
 
 
@@ -20,7 +21,8 @@ class questionsController extends Controller
 
     public function redirect($id){
         $question=DB::table('questions')->where('id',$id)->first();
-        return view('question.mainquestion',['question'=>$question]);
+        $answers=DB::table('answers')->where('qid',$id)->get();
+        return view('question.mainquestion',['question'=>$question],['answers'=>$answers]);
         
     }
 
@@ -60,8 +62,11 @@ class questionsController extends Controller
     public function delete($id){
         //return 'Question Deleted';
         DB::table('questions')->where('id', $id)->delete();
+        DB::table('answers')->where('qid',$id)->delete();
         return redirect('questions/userquestions')->with('mssg','Your Question is Deleted');
     }
+
+   
     
 
 }

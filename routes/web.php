@@ -34,6 +34,21 @@ Route::get('/questions', 'questionsController@index');
 Route::get('/questions/create', 'questionsController@create');
 Route::get('/questions/userquestions', 'questionsController@userquestions');
 Route::post('/questions','questionsController@store');
+
+
+Route::post('/answers', 'answerController@create');
+Route::get('/answers/useranswers', 'answerController@useranswers');
+    
+
+
+
+
 Route::get('/questions/deletequestion/{id}', 'questionsController@delete');
 Route::get('/questions/{id}', 'questionsController@redirect');
+
+
+
+// Route::get('/answer',function(){
+    
+// });
 
