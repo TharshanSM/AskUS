@@ -20,9 +20,11 @@
             
             <hr class="my-4">
             @auth
-            <a class="btn btn-primary btn-lg" href="{{ url('questions/create') }}" role="button">Ask Question</a>
-            <a class="btn btn-primary btn-lg" href="{{ url('questions/userquestions') }}" role="button">View My Question</a>
-            <a class="btn btn-primary btn-lg" href="{{ url('answers/useranswers') }}" role="button">View My Answers</a>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <a class="btn btn-primary " href="{{ url('questions/create') }}" role="button">Ask Question</a>
+                <a class="btn btn-primary " href="{{ url('questions/userquestions') }}" role="button">View My Question</a>
+                <a class="btn btn-primary " href="{{ url('answers/useranswers') }}" role="button">View My Answers</a>
+            </div>
             
             @endauth
 
@@ -46,7 +48,7 @@
                 <h5 class="card-title">Question: {{$question->body}}</h5>
                 <p class="card-text">Date : {{$question->date}}</p>
                 
-                <a href="{{ url('questions',[$question->id]) }}" class="btn btn-link">View Question</a>
+                <a href="{{ url('questions',[$question->id]) }}" class="btn btn-link">View Answer</a>
                 <a href="{{ url('questions/deletequestion',[$question->id]) }}" class="btn btn-link">Delete Question</a>
             </div>  
             </div>

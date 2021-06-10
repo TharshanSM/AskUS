@@ -45,4 +45,30 @@ class answerController extends Controller
         error_log($answers);
         return view('answer.useranswer',['answers'=>$answers]);
     }
+
+    public function editanswers($answerid){
+        $answers=DB::table('answers')->where('id',$answerid)->get();
+        // error_log($answers);
+        return view('answer.editanswer',['answer'=>$answers]);
+        
+    }
+
+    public function saveanswers(){
+        $affected=DB::table('answers')->where('id',request('txtAnswerID'))->update(['answer'=>request('txtEditAnswer')]);
+        if($affected){
+            return redirect('/answers/useranswers')->with('mssg','Your Answer Was Changed');
+        }else{
+            error_log('Error'); 
+            return 'Error';
+        }
+
+    }
+
+    public function deleteanswers($answerid){
+        $affected=DB::table('answers')->where('id', $answerid)->delete();
+        if($affected){
+            return redirect('/answers/useranswers')->with('mssg','Your Answer Was Deleted');
+        }
+        
+    }
 }

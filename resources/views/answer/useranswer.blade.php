@@ -21,9 +21,11 @@
             
             <hr class="my-4">
             @auth
-            <a class="btn btn-primary btn-lg" href="{{ url('questions/create') }}" role="button">Ask Question</a>
-            <a class="btn btn-primary btn-lg" href="{{ url('questions/userquestions') }}" role="button">View My Question</a>
-            <a class="btn btn-primary btn-lg" href="{{ url('answers/useranswers') }}" role="button">View My Answers</a>
+            <div class="btn-group" role="group" aria-label="Basic example">
+            <a class="btn btn-primary " href="{{ url('questions/create') }}" role="button">Ask Question</a>
+            <a class="btn btn-primary " href="{{ url('questions/userquestions') }}" role="button">View My Question</a>
+            <a class="btn btn-primary " href="{{ url('answers/useranswers') }}" role="button">View My Answers</a>
+            </div>
             
             @endauth
 
@@ -50,9 +52,10 @@
             <div class="card-body">
                 <p class="card-title">Your Answer: {{$answer->answer}}</p>
                 <p class="card-text">Answered Date : {{$answer->created_at}}</p>
-                
-                <a href="" class="btn btn-link">Edit Answer</a>
-                <a href="" class="btn btn-link">Delete Answer</a>
+
+                <!-- passing a value through URL -->
+                <a href="{{ url('answers/editanswers',['answerid'=>$answer->id]) }}" class="btn btn-link">Edit Answer</a>
+                <a href="{{url('answers/deleteanswers',['answerid'=>$answer->id])}}" class="btn btn-link">Delete Answer</a>
             </div>  
             </div>
             <br>

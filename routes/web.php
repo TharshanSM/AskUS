@@ -38,6 +38,10 @@ Route::post('/questions','questionsController@store');
 
 Route::post('/answers', 'answerController@create');
 Route::get('/answers/useranswers', 'answerController@useranswers');
+
+Route::post('answers/saveanswers','answerController@saveanswers');
+Route::get('/answers/editanswers/{answerid}','answerController@editanswers');
+Route::get('answers/deleteanswers/{answerid}','answerController@deleteanswers');
     
 
 

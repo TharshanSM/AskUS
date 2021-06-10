@@ -20,9 +20,11 @@
             
             <hr class="my-4">
             @auth
-            <a class="btn btn-primary btn-lg" href="{{ url('questions/create') }}" role="button">Ask Question</a>
-            <a class="btn btn-primary btn-lg" href="{{ url('questions/userquestions') }}" role="button">View My Question</a>
-            <a class="btn btn-primary btn-lg" href="{{ url('answers/useranswers') }}" role="button">View My Answers</a>
+            <div class="btn-group" role="group" aria-label="Basic example">
+            <a class="btn btn-primary " href="{{ url('questions/create') }}" role="button">Ask Question</a>
+            <a class="btn btn-primary " href="{{ url('questions/userquestions') }}" role="button">View My Question</a>
+            <a class="btn btn-primary " href="{{ url('answers/useranswers') }}" role="button">View My Answers</a>
+            </div>
             @endauth
 
             @guest
