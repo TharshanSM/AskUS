@@ -55,7 +55,7 @@
 
                 <!-- passing a value through URL -->
                 <a href="{{ url('answers/editanswers',['answerid'=>$answer->id]) }}" class="btn btn-link">Edit Answer</a>
-                <a href="{{url('answers/deleteanswers',['answerid'=>$answer->id])}}" class="btn btn-link">Delete Answer</a>
+                <a href="{{ url('answers/deleteanswers',['answerid'=>$answer->id])}}" class="btn btn-link">Delete Answer</a>
             </div>  
             </div>
             <br>

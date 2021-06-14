@@ -58,7 +58,7 @@ class answerController extends Controller
         if($affected){
             return redirect('/answers/useranswers')->with('mssg','Your Answer Was Changed');
         }else{
-            error_log('Error'); 
+            error_log(request('txtEditAnswer')); 
             return 'Error';
         }
 

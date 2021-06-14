@@ -7,10 +7,12 @@
         <div class="jumbotron"> 
             <p class="lead">Questions Number: {{$question->id}}</p>
             <h4 class="display-4">{{$question->body}}</h4>
-            <hr class="my-4">
-            <p class="lead">Asked on: {{$question->date}}</p>
-            <p class="lead">Question Subject: <span class="badge badge-pill badge-warning">{{$question->subject}}</span></p>
-            <p class="lead">Asked By: <a href="#">{{$question->userEmail}}</a></p>
+            <hr>
+            <blockquote class="blockquote mb-1">
+            <footer class="blockquote-footer"> Asked on: <cite title="Source Title">    {{  $question->date}} </footer>
+            <footer class="blockquote-footer"> Question Subject: <cite title="Source Title"><span class="badge badge-pill badge-warning">   {{  $question->subject}}</span></footer>
+            <footer class="blockquote-footer"> Asked By: <cite title="Source Title">  {{  $question->userEmail}}</footer>
+            </blockquote>
 
             @guest
             <h3><a href="{{ route('login') }}">{{ __('Login') }}</a> To Post Answer</h3>
@@ -27,16 +29,26 @@
 
         <!-- display the result -->
         @foreach($answers as $answer)
-        <div class="py-2 ">
-            <div class="card border border-info">
-                <div class="card-body">
-                    
-                    <p class="lead">{{$answer -> answer}}</p>
-                    <p><b>Answered By : </b><a href="#"> {{$answer -> authorname}}</a> </p>
-                    <!-- <p>Please be sure to answer the question. Provide details and share your research!</p>
-                    <p><i>But avoid …</i></p> -->
-                </div>
-            </div>
+        <div class="py-2">
+                <div class="card">
+                    <div class="card-header">Answer No: {{$answer->id}}</div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                        <p><i class="fas fa-map-pin"></i> {{$answer->answer}}</p>
+                        <footer class="blockquote-footer"><i class="fas fa-user-circle"></i> Answered by: <cite title="Source Title"><a href="">{{$answer->authorname}}</a></footer>
+                        <footer class="blockquote-footer"><i class="fas fa-clock"></i> Date: <cite title="Source Title">{{$answer->created_at}}</footer>
+                        <hr>
+                        
+                        <div>
+                            <p>Comment</p>
+                        </div>
+
+
+
+                        </blockquote>
+                    </div>
+        </div>    
+        </div>
         @endforeach
         <hr>
 
@@ -47,7 +59,7 @@
         @auth
         <div>
             <div class="card">
-                <h5 class="card-header">Your Answer</h5>
+                <h5 class="card-header">Post Your Answer Below</h5>
             <div class="card-body">
 
             <form action="/answers" method="POST">
