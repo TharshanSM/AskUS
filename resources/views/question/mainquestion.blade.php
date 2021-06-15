@@ -34,23 +34,35 @@
                     <div class="card-header">Answer No: {{$answer->id}}</div>
                     <div class="card-body">
                         <blockquote class="blockquote mb-0">
-                        <p><i class="fas fa-map-pin"></i> {{$answer->answer}}</p>
+                        <p><i class="fas fa-angle-double-right"></i> {{$answer->answer}}</p>
                         <footer class="blockquote-footer"><i class="fas fa-user-circle"></i> Answered by: <cite title="Source Title"><a href="">{{$answer->authorname}}</a></footer>
                         <footer class="blockquote-footer"><i class="fas fa-clock"></i> Date: <cite title="Source Title">{{$answer->created_at}}</footer>
+                        </blockquote>
                         <hr>
-                        
+
+
+                        <!-- comment section -->
                         <div>
-                            <p>Comment</p>
+                            <p>Comments</p>
+                            <div class="card">
+                                <ul class="list-group list-group-flush">
+                                    
+                                    <li class="list-group-item bg-light"><i class="far fa-comments"></i> Comments</li>
+                                    
+                                </ul>
+                            </div>
+
                         </div>
 
 
 
-                        </blockquote>
+                        
                     </div>
-        </div>    
-        </div>
-        @endforeach
+                </div>    
+            </div>
+            @endforeach
         <hr>
+         
 
 
 

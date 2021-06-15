@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\question;
 use App\Models\answer;
+use App\Models\comment;
 use Illuminate\Support\Facades\DB;
 
 
@@ -22,6 +23,9 @@ class questionsController extends Controller
     public function redirect($id){
         $question=DB::table('questions')->where('id',$id)->first();
         $answers=DB::table('answers')->where('qid',$id)->get();
+
+        $comments=answer::find(3)->comments;
+        error_log($comments);
         return view('question.mainquestion',['question'=>$question],['answers'=>$answers]);
         
     }
