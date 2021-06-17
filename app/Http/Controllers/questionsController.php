@@ -23,9 +23,8 @@ class questionsController extends Controller
     public function redirect($id){
         $question=DB::table('questions')->where('id',$id)->first();
         $answers=DB::table('answers')->where('qid',$id)->get();
-
-        
-        
+        // $answers=answer::find($id);
+        error_log($answers);
         return view('question.mainquestion',['question'=>$question],['answers'=>$answers]);
         
     }

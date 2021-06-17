@@ -44,8 +44,12 @@
 
 
                         <!-- comment section -->
-                        <div>
-                            <p><a href=""><i class="far fa-comments"></i> View Comments</a></p>
+                        <div class="d-flex">
+                            <p class="pl-5"><a href=""><i class="far fa-thumbs-up"></a></i></p>
+                            <p class="pl-5"><a href=""><i class="far fa-thumbs-down"></i></a></p></p>
+                            <p class="pl-5"><a href="{{ url('addcomment',[$answer->id])}}"><i class="far fa-comment-dots"></i> Add Comment</a></p>
+                            <p class="pl-5"><a href="{{ url('viewcomment',[$answer->id])}}"><i class="far fa-comments"></i> View Comments</a></p>
+                            
                         </div>
 
 
