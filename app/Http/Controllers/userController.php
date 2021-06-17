@@ -15,6 +15,11 @@ class userController extends Controller
         $user=DB::table('users')->where('id',$userid)->get();
         error_log('UserID: '.$user);
 
-        return view('user',['users'=>$user]);
+        return view('user.user',['users'=>$user]);
+    }
+
+    public function viewuser($id){
+        $user = DB::table('users')->where('email', $id)->get();
+        return view('user.viewuser',['users'=>$user]);
     }
 }

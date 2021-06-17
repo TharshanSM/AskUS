@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'indexController@index');
 Route::get('/jobs', 'JobsController@showJobs');
+Route::get('/job_details/{id}','JobsController@showJobDetails');
 Route::get('/post_vacancy', 'JobsController@showPostVacancy');
 Route::post('/save_vacancy', 'JobsController@savePostVacancy');
 
@@ -44,11 +45,14 @@ Route::get('/questions/deletequestion/{id}', 'questionsController@delete');
 Route::get('/questions/{id}', 'questionsController@redirect');
 
 Route::post('/answers', 'answerController@create');
+
 Route::get('/answers/useranswers', 'answerController@useranswers');
 Route::post('answers/saveanswers','answerController@saveanswers');
+
 Route::get('/answers/editanswers/{answerid}','answerController@editanswers');
 Route::get('answers/deleteanswers/{answerid}','answerController@deleteanswers');
 
 
 Route::get('/userprofile', 'userController@index');
+Route::get('/userprofile/{id}', 'userController@viewuser');
 

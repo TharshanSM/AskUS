@@ -37,21 +37,15 @@
                         <p><i class="fas fa-angle-double-right"></i> {{$answer->answer}}</p>
                         <footer class="blockquote-footer"><i class="fas fa-user-circle"></i> Answered by: <cite title="Source Title"><a href="">{{$answer->authorname}}</a></footer>
                         <footer class="blockquote-footer"><i class="fas fa-clock"></i> Date: <cite title="Source Title">{{$answer->created_at}}</footer>
+                        <footer class="blockquote-footer"><i class="fas fa-id-badge"></i><a href="{{ url('userprofile',[$answer->useremail]) }}"> View Profile</a></footer>
+                                                                                                    
                         </blockquote>
                         <hr>
 
 
                         <!-- comment section -->
                         <div>
-                            <p>Comments</p>
-                            <div class="card">
-                                <ul class="list-group list-group-flush">
-                                    
-                                    <li class="list-group-item bg-light"><i class="far fa-comments"></i> Comments</li>
-                                    
-                                </ul>
-                            </div>
-
+                            <p><a href=""><i class="far fa-comments"></i> View Comments</a></p>
                         </div>
 
 

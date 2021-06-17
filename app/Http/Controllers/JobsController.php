@@ -20,6 +20,12 @@ class JobsController extends Controller
         return view('jobs.all',['jobs'=> $jobs]);
     }
 
+    public function showJobDetails($id)
+    {
+        $job = Jobs::find($id);
+        return view('jobs.view',['job'=> $job]);
+    }
+
     public function savePostVacancy(Request $request)
     {
 

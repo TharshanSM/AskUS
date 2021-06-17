@@ -27,6 +27,7 @@
         </div>
 
             <div class="row">
+            
                 <!-- profile photo -->
                 <div class="col-md-4">
                     <div class="card ">
@@ -43,8 +44,8 @@
                     <h5 class="card-header">Profile Details</h5>
                 <div class="card-body">
                 <h5 class="display-5 text-center bold">Personal Details</h5>
-                <p class="display-5">Name: </h1>
-                <p class="display-5">Email Address: </h1> 
+                <p class="display-5">Name: {{$user->name}} </h1>
+                <p class="display-5">Email Address:{{$user->email}} </h1> 
                 <hr>   
                 <h5 class="display-5 text-center bold">Professional Details</h5>
                 <p class="display-5">About Me: N/A </h1> 
