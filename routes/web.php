@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -16,19 +17,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::get('/index', 'indexController@index');
+Route::get('/', 'indexController@index');
+Route::get('/jobs', 'JobsController@showJobs');
+Route::get('/post_vacancy', 'JobsController@showPostVacancy');
+Route::post('/save_vacancy', 'JobsController@savePostVacancy');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/user/skills', [HomeController::class, 'manageSkills']);
+Route::get('/skill/delete/{id}', [HomeController::class, 'deleteSkill']);
+Route::get('/user/update_profile', [HomeController::class, 'showUpdateProfile']);
+
+Route::post('/save_skill', 'HomeController@saveSkill');
+Route::post('/update_profile', 'HomeController@updateProfile');
+
 
 Route::get('/questions', 'questionsController@index');
 Route::get('/questions/create', 'questionsController@create');
