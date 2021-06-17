@@ -38,4 +38,17 @@ Route::post('/update_profile', 'HomeController@updateProfile');
 
 Route::get('/questions', 'questionsController@index');
 Route::get('/questions/create', 'questionsController@create');
+Route::get('/questions/userquestions', 'questionsController@userquestions');
+Route::post('/questions','questionsController@store');
+Route::get('/questions/deletequestion/{id}', 'questionsController@delete');
 Route::get('/questions/{id}', 'questionsController@redirect');
+
+Route::post('/answers', 'answerController@create');
+Route::get('/answers/useranswers', 'answerController@useranswers');
+Route::post('answers/saveanswers','answerController@saveanswers');
+Route::get('/answers/editanswers/{answerid}','answerController@editanswers');
+Route::get('answers/deleteanswers/{answerid}','answerController@deleteanswers');
+
+
+Route::get('/userprofile', 'userController@index');
+

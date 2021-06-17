@@ -5,8 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class question extends Model
+class comment extends Model
 {
     use HasFactory;
+    public function answer(){
+        return $this->belongsTo(answer::class);
+    }
 
 }
